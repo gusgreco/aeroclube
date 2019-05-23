@@ -1,0 +1,130 @@
+{% extends "base_admin.html" %}
+
+{% block title%} Apache | Administrador {% endblock title%}
+
+{% block titulo %}Cadastro{% endblock %}
+
+{% block subtitulo%}Novo usuario{% endblock %}
+
+{%block conteudo%}
+
+{%if erro_nome == true %}
+    <div class="col-sm-8 col-lg-8 col-lg-offset-2 col-sm-offset-2">
+        <!-- Danger Alert -->
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h3 class="font-w300 push-15">Error</h3>
+            <p>Nome já está cadastrado <a class="alert-link" href="javascript:void(0)"></a>!</p>
+        </div>
+        <!-- END Danger Alert -->
+    </div>
+{%endif%}
+{%if erro_cpf == true %}
+    <div class="col-sm-8 col-lg-8 col-lg-offset-2 col-sm-offset-2">
+        <!-- Danger Alert -->
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h3 class="font-w300 push-15">Error</h3>
+            <p>CPF já está cadastrado <a class="alert-link" href="javascript:void(0)"></a>!</p>
+        </div>
+        <!-- END Danger Alert -->
+    </div>
+{%endif%}
+{%if erro_email == true %}
+    <div class="col-sm-8 col-lg-8 col-lg-offset-2 col-sm-offset-2">
+        <!-- Danger Alert -->
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h3 class="font-w300 push-15">Error</h3>
+            <p>E-mail já está cadastrado <a class="alert-link" href="javascript:void(0)"></a>!</p>
+        </div>
+        <!-- END Danger Alert -->
+    </div>
+{%endif%}
+{%if cadastrou_pessoa == true %}
+    <div class="col-sm-8 col-lg-8 col-lg-offset-2 col-sm-offset-2">
+        <!-- Success Alert -->
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h3 class="font-w300 push-15">Tudo certo!</h3>
+            <p>Usuário <a class="alert-link" href="javascript:void(0)">cadastrado com sucesso.</a>!</p>
+        </div>
+        <!-- END Success Alert -->
+    </div>
+{%endif%}
+
+<div class="content content-narrow">
+    <!-- Material Design -->
+    <div class="row">
+        <div class="col-md-11">
+            <!-- Static Labels -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">Formulario de Inscricao</h3>
+                </div>
+                <div class="block-content block-content-narrow">
+                    <form class="form-horizontal push-10-t" action="/cadastrar_usuario" method="post">
+                        
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material form-material-primary">
+                                    <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome..">
+                                    <label for="material-color-primary">Nome</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material form-material-primary">
+                                    <input class="form-control" type="text" id="cpf" name="cpf" placeholder="Formato XXX.XXX.XXX-XX">
+                                    <label for="material-color-primary">CPF</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material form-material-primary">
+                                    <input class="form-control" type="text" id="email" name="email" placeholder="E-mail..">
+                                    <label for="material-color-primary">E-mail</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <select class="form-control" id="cargo" name="cargo" size="1">
+                                        <option>Selecione uma opcao</option>
+                                        <option value="Piloto">Piloto</option>
+                                        <option value="Instrutor">Instrutor</option>
+                                        <option value="Aluno">Aluno</option>
+                                    </select>
+                                    <label for="material-select">Categoria</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <div class="col-sm-9">
+                                    <div class="form-material form-material-primary">
+                                        <input class="form-control" type="text" id="data_nascimento" name="data_nascimento" placeholder="Formato dd/mm/aa">
+                                        <label for="material-color-primary">Data de Nascimento</label>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <!-- END Static Labels -->
+        </div>
+    </div>
+</div>
+        <!-- END Material Design -->
+
+
+{% endblock conteudo%}
+
